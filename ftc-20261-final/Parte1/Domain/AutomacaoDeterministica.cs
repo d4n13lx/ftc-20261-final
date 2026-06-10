@@ -19,17 +19,34 @@ namespace ftc_20261_final.Parte1.Domain
             string estadoInicial,
             HashSet<string> estadosAceitacao)
         {
+            if(estados == null || estados.Count == 0) throw new ArgumentException("O conjunto dos estados não pode ser vazio");
+            if(alfabeto == null || alfabeto.Count == 0) throw new ArgumentException("O alfabeto Sigma não pode ser vazio");
+            if(transicoes == null) throw new ArgumentNullException(nameof(transicoes));
+            if(string.IsNullOrWhiteSpace(estadoInicial)) throw new ArgumentException("O estado Inicial deve ser informado");
+            if(!estados.Contains(estadoInicial)) throw new ArgumentException("O estado Inicial deve pertencer ao conjunto Q");
+            if(estadosAceitacao == null) throw new ArgumentNullException(nameof(estadosAceitacao));
+            if(!estados.IsSupersetOf(estadosAceitacao)) throw new ArgumentException("O conjunto de estados de aceitação F deve ser um subconjunto de Q");
 
+            Q = new HashSet<string>(estados);
+            Sigma = new HashSet<char>(alfabeto);
+            Delta = new Dictionary<(string estado, char simbolo), string>(transicoes);
+            Q0 = estadoInicial;
+            F = new HashSet<string>(estadosAceitacao);
         }
 
         public bool Aceitar(string cadeia)
         {
-            return false;
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<string> ObterRastro(string cadeia)
+        {
+            throw new NotImplementedException();
         }
 
         public void ExibirDiagrama()
         {
-
+            throw new NotImplementedException();
         }
     }
 }

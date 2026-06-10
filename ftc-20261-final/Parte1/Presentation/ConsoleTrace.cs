@@ -8,7 +8,7 @@ namespace ftc_20261_final.Parte1.Presentation
     {
         public static void Imprimir(string cadeia, IEnumerable<string> rastro, bool Aceita)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

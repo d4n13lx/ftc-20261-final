@@ -14,7 +14,7 @@ namespace ftc_20261_final.Parte1.Presentation
             HashSet<string> estadosAceitacao
             )
         {
-
+            throw new NotImplementedException();
         }
     }
 }
