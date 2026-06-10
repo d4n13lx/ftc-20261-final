@@ -39,7 +39,7 @@ namespace ftc_20261_final.Parte2.Domain
             var pilhaInicial = new Stack<char>();
             pilhaInicial.Push(Z0);
 
-            return ExplorarCaminhos(Q0, entradaReal, 0, pilhaInicial)
+            return ExplorarCaminhos(Q0, entradaReal, 0, pilhaInicial);
         }
 
         public bool ExplorarCaminhos(string estadoAtual, string cadeia, int indice, Stack<char> pilhaCorrente)
