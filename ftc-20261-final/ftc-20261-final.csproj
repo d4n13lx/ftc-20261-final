@@ -11,7 +11,7 @@
   <ItemGroup>
     <Folder Include="Parte1\Resources\" />
     <Folder Include="Parte2\Resources\" />
-    <Folder Include="Parte3\" />
+    <Folder Include="Parte3\Resources\" />
   </ItemGroup>
 
   <ItemGroup>
