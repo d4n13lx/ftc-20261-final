@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ftc_20261_final.Parte1.Presentation;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -80,7 +81,7 @@ namespace ftc_20261_final.Parte1.Domain
 
         public void ExibirDiagrama()
         {
-            throw new NotImplementedException();
+            TabelaVisualizacao.DesenharTabelaTransicoes(Q, Sigma, Delta, Q0, F);
         }
     }
 }
