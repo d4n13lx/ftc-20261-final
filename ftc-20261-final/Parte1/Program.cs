@@ -9,7 +9,7 @@ namespace ftc_20261_final.Parte1
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        public static void Executar()
         {
             string pastaDoExecutavel = AppContext.BaseDirectory;
             string caminhoJson = Path.GetFullPath(Path.Combine(pastaDoExecutavel, "..", "..", "..", "Parte1","Resources", "afd.json"));
