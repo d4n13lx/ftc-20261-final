@@ -36,12 +36,46 @@ namespace ftc_20261_final.Parte1.Domain
 
         public bool Aceitar(string cadeia)
         {
-            throw new NotImplementedException();
+            string estadoAtual = Q0;
+
+            foreach (char simbolo in cadeia)
+            {
+                if (!Sigma.Contains(simbolo) || !Delta.TryGetValue((estadoAtual, simbolo), out estadoAtual))
+                {
+                    return false;
+                }
+            }
+
+            return F.Contains(estadoAtual);
         }
 
         public IEnumerable<string> ObterRastro(string cadeia)
         {
-            throw new NotImplementedException();
+            var rastro = new List<string> { Q0 };
+            string estadoAtual = Q0;
+
+            if (cadeia == null) cadeia = string.Empty;
+
+            foreach (char simbolo in cadeia)
+            {
+                if (!Sigma.Contains(simbolo))
+                {
+                    rastro.Add($"ERROR: '{simbolo}' não pertence ao alfabeto de sigma");
+                    break;
+                }
+
+                if (Delta.TryGetValue((estadoAtual, simbolo), out string proximoEstado)) 
+                {
+                    estadoAtual = proximoEstado;
+                    rastro.Add(estadoAtual);
+                }
+                else
+                {
+                    rastro.Add("ERROR: Transição indefinida");
+                }
+            }
+
+            return rastro;
         }
 
         public void ExibirDiagrama()
