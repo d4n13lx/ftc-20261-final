@@ -14,7 +14,7 @@ namespace ftc_20261_final.Parte3.Infrastructure
             delta[("q0", 'a')] = ("q1", 'X', 'R');
             delta[("q0", 'Y')] = ("q4", 'Y', 'R');
 
-            delta[("q1", 'a')] = ("q4", 'a', 'R');
+            delta[("q1", 'a')] = ("q1", 'a', 'R');
             delta[("q1", 'Y')] = ("q1", 'Y', 'R');
 
             delta[("q1", 'b')] = ("q2", 'Y', 'R');

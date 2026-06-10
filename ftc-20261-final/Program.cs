@@ -31,6 +31,7 @@ namespace ftc_20261_final
                         Parte2.Program.Executar(); 
                         break;
                     case "3":
+                        Parte3.Program.Executar();
                         break;
                     case "0":
                         Console.WriteLine("Saindo do programa");
