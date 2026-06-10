@@ -17,11 +17,11 @@ namespace ftc_20261_final.Parte1.Presentation
             Console.WriteLine(" TABELA DE TRANSIÇÕES DO AUTÔMATO ");
             Console.WriteLine();
 
-            Console.WriteLine("{0, - 12", "Estado");
+            Console.WriteLine("{0,-12}", "Estado");
 
             foreach (char simbolo in alfabeto.OrderBy(c => c))
             {
-                Console.Write("| {0, -8}", simbolo);
+                Console.Write("| {0,-8}", simbolo);
             }
             Console.WriteLine();
             Console.WriteLine(new string('-', 12 + (alfabeto.Count * 11)));
@@ -39,11 +39,11 @@ namespace ftc_20261_final.Parte1.Presentation
                 {
                     if (transicoes.TryGetValue((estado, simbolo), out string destino))
                     {
-                        Console.Write("| {0, -8}", destino);
+                        Console.Write("| {0,-8}", destino);
                     }
                     else
                     {
-                        Console.Write("| {0, -8}", "-");
+                        Console.Write("| {0,-8}", "-");
                     }
                 }
                 Console.WriteLine();

@@ -14,4 +14,13 @@
     <Folder Include="Parte3\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Parte1\Resources\afd.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Parte1\Resources\entradas.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
