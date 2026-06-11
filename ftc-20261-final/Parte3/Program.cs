@@ -6,6 +6,10 @@ using System.Text;
 
 namespace ftc_20261_final.Parte3
 {
+    /// <summary>
+    /// Orquestrador da Parte 3: Máquina de Turing
+    /// Interliga os dados de entrada ao motor computacional e à interface de visualização
+    /// </summary>
     public static class Program
     {
         public static void Executar()

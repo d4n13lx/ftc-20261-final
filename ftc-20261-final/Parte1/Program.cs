@@ -7,8 +7,16 @@ using System.Text;
 
 namespace ftc_20261_final.Parte1
 {
-    internal class Program
+    /// <summary>
+    /// Orquestrador principal da Parte 1
+    /// Atuando como o controlador que une os arquivos, processamento e resultados.
+    /// </summary>
+    public static class Program
     {
+        /// <summary>
+        /// O Ponto de Entrada do módulo de AFD. Carregando os recursos, exibindo os diagramas e
+        /// processa o lote de cadeias de teste
+        /// </summary>
         public static void Executar()
         {
             string pastaDoExecutavel = AppContext.BaseDirectory;
@@ -47,7 +55,7 @@ namespace ftc_20261_final.Parte1
                     var rastro = afd.ObterRastro(cadeia);
 
                     string cadeiaParaImprimir = cadeia == "" ? "ε (vazia)" : cadeia;
-                    ConsoleTrace.Imprimir(cadeia, rastro, aceita);
+                    ConsoleTrace.Imprimir(cadeiaParaImprimir, rastro, aceita);
                 }
             }
             catch (Exception ex)

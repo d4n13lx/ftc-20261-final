@@ -5,8 +5,15 @@ using System.Text;
 
 namespace ftc_20261_final.Parte3.Infrastructure
 {
+    /// <summary>
+    /// Fornece a configuração estática das transições lógicas das Máquinas de Turing
+    /// </summary>
     public static class ConfiguradorMt
     {
+        /// <summary>
+        /// Cria o reconhecedor para a linguagem L4 = { a^n b^n c^n | n >= 1 }
+        /// </summary>
+        /// <returns></returns>
         public static MaquinaTuring CriarMtL4()
         {
             var delta = new Dictionary<(string, char), (string, char, char)>();
@@ -39,6 +46,10 @@ namespace ftc_20261_final.Parte3.Infrastructure
             return new MaquinaTuring(delta, "q0", "qaccept", "qreject", 1000);
         }
 
+        /// <summary>
+        /// Cria a Máquina Computadora para a função unária f(n) = n + 1
+        /// </summary>
+        /// <returns></returns>
         public static MaquinaTuring CriarMtFuncaoUnaria()
         {
             var delta = new Dictionary<(string, char), (string, char, char)>();

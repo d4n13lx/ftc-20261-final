@@ -4,8 +4,20 @@ using System.Text;
 
 namespace ftc_20261_final.Parte1.Presentation
 {
+    /// <summary>
+    /// O Componente de apresentação dedicado a renderizar as matrizes e tabelas no console
+    /// </summary>
     public class TabelaVisualizacao
     {
+        /// <summary>
+        /// Desenha a representação bidimensional da função de transição,
+        /// indicando visualmente o estado inicial (->) e os estados finais (*)
+        /// </summary>
+        /// <param name="estados"></param>
+        /// <param name="alfabeto"></param>
+        /// <param name="transicoes"></param>
+        /// <param name="estadoInicial"></param>
+        /// <param name="estadosAceitacao"></param>
         public static void DesenharTabelaTransicoes(
             HashSet<string> estados,
             HashSet<char> alfabeto,

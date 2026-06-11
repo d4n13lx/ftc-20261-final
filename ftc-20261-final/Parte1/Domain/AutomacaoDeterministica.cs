@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ftc_20261_final.Parte1.Domain
 {
+    /// <summary>
+    /// Representa a 5-Tupla Formal de um Autômato Finito Determinístico: M = (Q, Σ, δ, q0, F) 
+    /// </summary>
     public class AutomacaoDeterministica
     {
         public HashSet<string> Q { get;  }
@@ -20,6 +23,7 @@ namespace ftc_20261_final.Parte1.Domain
             string estadoInicial,
             HashSet<string> estadosAceitacao)
         {
+            // Cláusulas de Guarda que garantem a integridade do modelo matemático
             if(estados == null || estados.Count == 0) throw new ArgumentException("O conjunto dos estados não pode ser vazio");
             if(alfabeto == null || alfabeto.Count == 0) throw new ArgumentException("O alfabeto Sigma não pode ser vazio");
             if(transicoes == null) throw new ArgumentNullException(nameof(transicoes));
@@ -35,12 +39,19 @@ namespace ftc_20261_final.Parte1.Domain
             F = new HashSet<string>(estadosAceitacao);
         }
 
+        /// <summary>
+        /// Simula a leitura na cadeia. Retorna true se a máquina parar em um estado de aceitação.
+        /// </summary>
+        /// <param name="cadeia"></param>
+        /// <returns></returns>
         public bool Aceitar(string cadeia)
         {
+            cadeia ??= string.Empty;
             string estadoAtual = Q0;
 
             foreach (char simbolo in cadeia)
             {
+                // Se o símbolo não pertence ao alfabeto ou não há transição mapeada, rejeita imediatamente
                 if (!Sigma.Contains(simbolo) || !Delta.TryGetValue((estadoAtual, simbolo), out estadoAtual))
                 {
                     return false;
@@ -50,6 +61,11 @@ namespace ftc_20261_final.Parte1.Domain
             return F.Contains(estadoAtual);
         }
 
+        /// <summary>
+        /// Executa a simulação e retorna o caminho de estados percorridos
+        /// </summary>
+        /// <param name="cadeia"></param>
+        /// <returns></returns>
         public IEnumerable<string> ObterRastro(string cadeia)
         {
             var rastro = new List<string> { Q0 };

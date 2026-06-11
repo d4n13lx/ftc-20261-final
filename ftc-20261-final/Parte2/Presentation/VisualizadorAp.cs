@@ -4,8 +4,17 @@ using System.Text;
 
 namespace ftc_20261_final.Parte2.Presentation
 {
+    /// <summary>
+    /// Componente de apresentação visual do Autômato de Pilha
+    /// </summary>
     public class VisualizadorAp
     {
+        /// <summary>
+        /// Exibe a configuração instantânea (Estado, Restante da Fita e Conteúdo da Pilha)
+        /// </summary>
+        /// <param name="estado"></param>
+        /// <param name="entradaRestante"></param>
+        /// <param name="pilha"></param>
         public static void ImprimirConfiguracao(string estado, string entradaRestante, Stack<char> pilha)
         {
             string representacaoEntrada = string.IsNullOrEmpty(entradaRestante) ? "ε" : $"\"{entradaRestante}\"";

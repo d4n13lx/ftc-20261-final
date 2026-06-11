@@ -7,6 +7,9 @@ using System.Text;
 
 namespace ftc_20261_final.Parte2
 {
+    /// <summary>
+    /// Orquestrador da Parte 2
+    /// </summary>
     public class Program
     {
         public static void Executar()
@@ -23,14 +26,17 @@ namespace ftc_20261_final.Parte2
                 return;
             }
 
-            string[] linhas = File.ReadAllLines(caminhoArquivo);
+            // Lê as linhas, remove espaços em branco e filtra linhas vazias
+            var linhasValidas = File.ReadAllLines(caminhoArquivo)
+                                    .Select(l => l.Trim())
+                                    .Where(l => !string.IsNullOrEmpty(l));
 
             Console.WriteLine(" EXECUTANDO AUTÔMATO DE PILHA PARA L2 (A^2 B^N) ");
             Console.WriteLine();
 
             AutomatoPilha apL2 = ConfiguradorAutomato.CriarAutomatoL2();
 
-            foreach (string linha in linhasTratadas(linhas))
+            foreach (string linha in linhasValidas)
             {
                 Console.WriteLine($"Processando Cadeia: \"{linha}\"");
 
@@ -41,21 +47,12 @@ namespace ftc_20261_final.Parte2
             Console.WriteLine(" EXECUTANDO AUTÔMATO DE PILHA PARA L3 (PALÍNDROMOS) ");
             AutomatoPilha apL3 = ConfiguradorAutomato.CriarAutomatoL3();
 
-            foreach (string linha in linhasTratadas(linhas))
+            foreach (string linha in linhasValidas)
             {
                 Console.WriteLine($"Processando Cadeia: \"{linha}\"");
 
                 bool aceita = apL3.Aceitar(linha);
                 VisualizadorAp.ImprimirResultado(linha, aceita);
-            }
-        }
-
-        private static System.Collections.Generic.IEnumerable<string> linhasTratadas(string[] linhas)
-        {
-            foreach (var l in linhas)
-            {
-                string t = l.Trim();
-                if (!string.IsNullOrEmpty(t)) yield return t;
             }
         }
     }
